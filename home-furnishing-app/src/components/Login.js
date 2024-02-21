@@ -54,15 +54,16 @@ function Login() {
             >
             {({ isSubmitting }) => (
             <Form>
+                <ErrorMessage name="username" component="div" />
                 <label htmlFor="username">Username</label>
                 
                 <Field type="text" name="username" />
-                <ErrorMessage name="username" component="div" />
                 
+                <ErrorMessage name="password" component="div" />
                 <label htmlFor="password">Password</label>
                 
                 <Field type='password' name="password" />
-                <ErrorMessage name="password" component="div" />
+                
                 
                 <button type="submit" disabled={isSubmitting}>
                 Login
