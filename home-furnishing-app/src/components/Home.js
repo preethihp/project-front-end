@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Home.css'; 
 import Image1 from '../images/bedroom.jpg';
 import Image2 from '../images/livingroom.jpg';
@@ -8,6 +8,7 @@ import Image4 from '../images/study.jpg';
 
 
 const Home = () => {
+  const location = useLocation();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const Home = () => {
       <header className="header">
         <div className="logo">RENTFURLAX</div>
         <div className="header-links">
-          <Link to="/login">Login</Link>
+          <Link to="/login" >Login</Link>
           <Link to="/register">Register</Link>
         </div>
       </header>
