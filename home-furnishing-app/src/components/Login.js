@@ -29,10 +29,10 @@ function Login() {
     return (
     <div>
         <header className="header">
-        <div className="logo">RENTFURLAX</div>
         <div className="header-links">
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          <Link exact to="/" >RENTFURLAX</Link>
+          <Link  to="/login" >Login</Link>
+          <Link to="/register" >Register</Link>
         </div>
       </header>
         <h1>Please Login</h1>

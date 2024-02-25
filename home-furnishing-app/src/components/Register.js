@@ -41,12 +41,12 @@ function Register() {
   return (
     <div>
         <header className="header">
-            <div className="logo">RENTFURLAX</div>
-            <div className="header-links">
-            <Link to="/login">Login</Link>
-            <Link className='register-link' to="/register" >Register</Link>
-            </div>
-        </header>
+        <div className="header-links">
+          <Link exact to="/" >RENTFURLAX</Link>
+          <Link to="/login" >Login</Link>
+          <Link  to="/register" >Register</Link>
+        </div>
+      </header>
         <h1>Please Register</h1>
         <form onSubmit={handleSubmit}>
         {error && error.non_field_errors && (

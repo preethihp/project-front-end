@@ -6,20 +6,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px;
   background-color: antiquewhite;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  padding:10px;
-  border-style: groove;
-  border-color: rgb(43, 42, 42);
-  background-clip: content-box;
-  color: brown;
-  margin-left:20px ;
- 
 }
 
 .header-links {
@@ -36,14 +24,6 @@
   font-weight: bold;
 
 }
-.header-links a:not(:last-child) {
-  margin-right: 30px; 
-}
-
-.header-links a:hover {
-  text-decoration: underline;
-}
-
 
 .body {
   margin-top: 20px;

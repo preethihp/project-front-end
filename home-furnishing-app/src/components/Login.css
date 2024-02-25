@@ -1,4 +1,17 @@
 /* styles.css */
+.login-page {
+  font-size: 24px;
+  font-weight: bold;
+  padding:10px;
+  border:2px solid brown;
+  background-clip: content-box;
+  margin-left:20px ;
+ 
+}
+.login-page:hover{
+  text-decoration: none;
+}
+
 h1 {
   text-align: center;
 }
