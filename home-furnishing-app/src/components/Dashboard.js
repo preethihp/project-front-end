@@ -1,13 +1,38 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import image from '../images/addtocart.png';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from './AuthSlice';
 
 
 const Dashboard = () => {
-  
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [categories, setCategories] = useState([]);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const isAdmin = useSelector(state => state.auth.isAdmin);
+  let adminui = ''
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate('/login');
+  };
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (isAuthenticated && isAdmin) {
+    adminui = (
+      <center>
+        <a className='adminui' href='/category'>Add category</a><br/><br/>
+        <a className='adminui' href='/product'>Add Product</a><br/><br/>
+        <a className='adminui' href='/orders'>Invoice</a><br/>
+      </center>
+    );
+  }
+
   useEffect(() => {
     fetch('http://localhost:8000/categories/')
       .then(response => response.json())
@@ -24,15 +49,18 @@ const Dashboard = () => {
       })
       .catch(error => console.error('Error fetching categories:', error));
   }, []);
+
   return (
     <div className="home-container">
       <header className="header">
         <div className="header-links">
           <Link exact to="/" >RENTFURLAX</Link>
           <Link to="/dashboard">Dashboard</Link>
-          <Link to="/orders" >Orders</Link>
-          <Link to="/logout" >Logout</Link>
+          
+          <Link to="/orders">Orders</Link>
+          <Link  onClick={handleLogout}>Logout</Link>
           <Link className='addtocart'to ="/cart"><img src={image} alt="addtocart"></img></Link>
+          
         </div>
       </header>
       <div className="body">
@@ -55,6 +83,7 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
+        {adminui}
       </div>
     </div>
   );

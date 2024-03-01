@@ -10,10 +10,10 @@ import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import Dashboard from './components/Dashboard';
 import Orders from './components/Orders';
-import Logout from './components/Logout';
 import CategoryItems from './components/CategoryItems';
-
 import CartContextProvider from './components/CartContext';
+import Category from './components/Category';
+import Product from './components/Product';
 
 
 const App = () => {
@@ -45,7 +45,8 @@ const addToCart = (item) => {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/dashboard" element={<Dashboard /> }/>
       <Route path="/orders" element={<Orders />} />
-      <Route path="/logout" element={<Logout />} />
+      <Route path="/category" element={<Category />} />
+      <Route path="/product" element={<Product />} />
       </Routes>
       
     
