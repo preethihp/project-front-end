@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  backend:
+    image: preethihp1802/project_image
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+
+  frontend:
+    image: preethihp1802/react_image
+    ports:
+      - "3000:3000"
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
